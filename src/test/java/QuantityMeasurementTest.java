@@ -168,4 +168,36 @@ public class QuantityMeasurementTest {
         boolean compare = Yard1.compare(Yard2);
         Assert.assertTrue(compare);
     }
+
+    @Test
+    public void givenOf1YardAnd1Feet_shouldReturnFalse() {
+        Length Yard1 = new Length(Length.Unit.YARD, 1.0);
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        boolean compare = Yard1.compare(feet1);
+        Assert.assertFalse(compare);
+    }
+
+    @Test
+    public void givenOf1YardAnd3Feet_shouldReturnTrue() {
+        Length Yard1 = new Length(Length.Unit.YARD, 1.0);
+        Length feet1 = new Length(Length.Unit.FEET, 3.0);
+        boolean compare = Yard1.compare(feet1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf3FeetAnd1Yard_shouldReturnTrue() {
+        Length feet1 = new Length(Length.Unit.FEET, 3.0);
+        Length Yard1 = new Length(Length.Unit.YARD, 1.0);
+        boolean compare = feet1.compare(Yard1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1FeetAnd3Yard_shouldReturnFalse() {
+        Length feet1 = new Length(Length.Unit.FEET, 1.0);
+        Length Yard1 = new Length(Length.Unit.YARD, 3.0);
+        boolean compare = feet1.compare(Yard1);
+        Assert.assertFalse(compare);
+    }
 }
