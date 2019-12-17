@@ -1,9 +1,12 @@
-import java.util.Objects;
+public class Length {
 
-public class Inch {
+    enum Unit {FEET, INCH}
+
+    private final Unit unit;
     private final double value;
 
-    public Inch(double value) {
+    public Length(Unit unit, double value) {
+        this.unit = unit;
         this.value = value;
     }
 
@@ -11,7 +14,7 @@ public class Inch {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Inch inch = (Inch) o;
+        Length inch = (Length) o;
         return Double.compare(inch.value, value) == 0;
     }
 }
