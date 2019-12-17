@@ -1,7 +1,9 @@
 public class Length {
 
     private static final double FEET_TO_INCH = 12.0;
-    enum Unit {FEET, INCH}
+    private static final double FEET_TO_YARD = 3.0;
+
+    enum Unit {FEET, INCH, YARD}
 
     private final Unit unit;
     private final double value;
@@ -16,11 +18,16 @@ public class Length {
             return Double.compare(this.value, that.value) == 0;
         if (this.unit.equals(unit.INCH) && that.unit.equals(unit.INCH))
             return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(unit.YARD) && that.unit.equals(unit.YARD))
+            return Double.compare(this.value, that.value) == 0;
         if (this.unit.equals(unit.FEET) && that.unit.equals(unit.INCH))
             return Double.compare(this.value * FEET_TO_INCH, that.value) == 0;
-        if (this.unit.equals(unit.INCH) && that.unit.equals(unit.FEET)) {
+        if (this.unit.equals(unit.INCH) && that.unit.equals(unit.FEET))
             return Double.compare(this.value, that.value * Math.round(FEET_TO_INCH)) == 0;
-        }
+        if (this.unit.equals(unit.YARD) && that.unit.equals(unit.FEET))
+            return Double.compare(this.value * FEET_TO_YARD, that.value) == 0;
+        if (this.unit.equals(unit.FEET) && that.unit.equals(unit.YARD))
+            return Double.compare(this.value, Math.round(that.value * FEET_TO_YARD)) == 0;
         return false;
     }
 
