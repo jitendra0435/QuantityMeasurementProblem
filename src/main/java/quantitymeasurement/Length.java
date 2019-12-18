@@ -16,6 +16,12 @@ public class Length {
         return firstValue.equals(secondValue);
     }
 
+    public double addition(Length that) {
+        double firstValue = this.unit.converter(this.value);
+        double secondValue = that.unit.converter(that.value);
+        return firstValue + secondValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

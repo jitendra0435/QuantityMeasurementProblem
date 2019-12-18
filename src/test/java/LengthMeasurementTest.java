@@ -3,7 +3,7 @@ import org.junit.Test;
 import quantitymeasurement.Conversion;
 import quantitymeasurement.Length;
 
-public class QuantityMeasurementTest {
+public class LengthMeasurementTest {
 
     @Test
     public void givenOf0FeetAnd0Feet_shouldReturnEqual() {
@@ -265,5 +265,142 @@ public class QuantityMeasurementTest {
         Length Yard1 = new Length(Conversion.Unit.YARD, 1.0);
         boolean compare = inch1.compare(Yard1);
         Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf0CMAnd0CM_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 0.0);
+        Length centiMeter2 = new Length(Conversion.Unit.CM, 0.0);
+        boolean compare = centiMeter1.compare(centiMeter2);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1InchAnd2_54CM_shouldReturnTrue() {
+        Length inch1 = new Length(Conversion.Unit.INCH, 1.0);
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 2.54);
+        boolean compare = inch1.compare(centiMeter1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf2_54CMAnd1Inch_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 2.54);
+        Length inch1 = new Length(Conversion.Unit.INCH, 1.0);
+        boolean compare = centiMeter1.compare(inch1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1FeetAnd130_48CM_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 30.48);
+        Length feet1 = new Length(Conversion.Unit.FEET, 1.0);
+        boolean compare = centiMeter1.compare(feet1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1CMAnd1Feet_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 60.96);
+        Length feet1 = new Length(Conversion.Unit.FEET, 2.0);
+        boolean compare = feet1.compare(centiMeter1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1YARDAnd1CM_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 91.44);
+        Length yard1 = new Length(Conversion.Unit.YARD, 1.0);
+        boolean compare = yard1.compare(centiMeter1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void givenOf1CMAnd1Yard_shouldReturnTrue() {
+        Length centiMeter1 = new Length(Conversion.Unit.CM, 182.88);
+        Length yard1 = new Length(Conversion.Unit.YARD, 2.0);
+        boolean compare = centiMeter1.compare(yard1);
+        Assert.assertTrue(compare);
+    }
+    //--------------------addition--------------
+
+    @Test
+    public void givenAdditionOf1INCHAnd1INCH_shouldReturn24INCH() {
+        Length length1 = new Length(Conversion.Unit.INCH, 1.0);
+        Length length2 = new Length(Conversion.Unit.INCH, 1.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(2.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1FeetAnd12INCH_shouldReturn24INCH() {
+        Length length1 = new Length(Conversion.Unit.FEET, 1.0);
+        Length length2 = new Length(Conversion.Unit.INCH, 12.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(24.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1FeetAnd1Feet_shouldReturn24INCH() {
+        Length length1 = new Length(Conversion.Unit.FEET, 1.0);
+        Length length2 = new Length(Conversion.Unit.FEET, 1.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(24.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf2InchAnd2_5CM_shouldReturn24INCH() {
+        Length length1 = new Length(Conversion.Unit.INCH, 2.0);
+        Length length2 = new Length(Conversion.Unit.CM, 2.5);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(3.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1YardAnd1feet_shouldReturn48INCH() {
+        Length length1 = new Length(Conversion.Unit.YARD, 1.0);
+        Length length2 = new Length(Conversion.Unit.FEET, 1.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(48.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1YardAnd5CM_shouldReturn38INCH() {
+        Length length1 = new Length(Conversion.Unit.YARD, 1.0);
+        Length length2 = new Length(Conversion.Unit.CM, 5.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(38.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1FeetAnd10CM_shouldReturn16INCH() {
+        Length length1 = new Length(Conversion.Unit.FEET, 1.0);
+        Length length2 = new Length(Conversion.Unit.CM, 10.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(16.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf5CMAnd10Inch_shouldReturn12INCH() {
+        Length length1 = new Length(Conversion.Unit.CM, 5.0);
+        Length length2 = new Length(Conversion.Unit.INCH, 10.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(12.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf1YardAnd1Yard_shouldReturn72INCH() {
+        Length length1 = new Length(Conversion.Unit.YARD, 1.0);
+        Length length2 = new Length(Conversion.Unit.YARD, 1.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(72.0, compare, 0.0);
+    }
+
+    @Test
+    public void givenAdditionOf12CmAnd12Cm_shouldReturn10INCH() {
+        Length length1 = new Length(Conversion.Unit.CM, 12.0);
+        Length length2 = new Length(Conversion.Unit.CM, 12.0);
+        double compare = length1.addition(length2);
+        Assert.assertEquals(10.0, compare, 0.0);
     }
 }

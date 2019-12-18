@@ -3,22 +3,42 @@ package quantitymeasurement;
 public class Conversion {
     public enum Unit {
         FEET {
-            public Double converter(double value) {
+            public double converter(double value) {
                 return value * 12;
             }
         },
         INCH {
-            public Double converter(double value) {
+            public double converter(double value) {
                 return value;
             }
         },
         YARD {
-            public Double converter(double value) {
+            public double converter(double value) {
                 return value * 36;
+            }
+        },
+        CM {
+            public double converter(double value) {
+                return (Math.round(value / 2.54));
+            }
+        },
+        KG {
+            public double converter(double value) {
+                return value * 1000;
+            }
+        },
+        GRAM {
+            public double converter(double value) {
+                return value;
+            }
+        },
+        QUINTAL {
+            public double converter(double value) {
+                return value * 100000;
             }
         };
 
-        public Double converter(double value) {
+        public double converter(double value) {
             return 0.0;
         }
     }
