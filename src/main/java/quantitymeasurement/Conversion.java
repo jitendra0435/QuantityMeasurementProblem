@@ -36,6 +36,11 @@ public class Conversion {
             public double converter(double value) {
                 return value * 100000;
             }
+        },
+        TONNE {
+            public double converter(double value) {
+                return value * 1000000;
+            }
         };
 
         public double converter(double value) {

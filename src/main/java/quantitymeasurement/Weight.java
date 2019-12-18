@@ -20,6 +20,12 @@ public class Weight {
         return firstValue.equals(secondValue);
     }
 
+    public double addition(Weight that) {
+        Double firstValue = this.unit.converter(this.value);
+        Double secondValue = that.unit.converter(that.value);
+        return firstValue + secondValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
