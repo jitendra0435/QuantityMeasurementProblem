@@ -41,6 +41,21 @@ public class Conversion {
             public double converter(double value) {
                 return value * 1000000;
             }
+        },
+        ML {
+            public double converter(double value) {
+                return value;
+            }
+        },
+        LITRE {
+            public double converter(double value) {
+                return value * 1000;
+            }
+        },
+        GALLON {
+            public double converter(double value) {
+                return Math.round(value * 3785.41);
+            }
         };
 
         public double converter(double value) {
