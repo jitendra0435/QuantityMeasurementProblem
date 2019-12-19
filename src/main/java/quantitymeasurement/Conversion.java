@@ -56,6 +56,18 @@ public class Conversion {
             public double converter(double value) {
                 return Math.round(value * 3785.41);
             }
+        },
+        FARAD {
+            public double converter(double value) {
+                double c1 = Math.round((value - 32) * 5 / 9);
+                System.out.println(c1);
+                return c1;
+            }
+        },
+        CELSIUS {
+            public double converter(double value) {
+                return value;
+            }
         };
 
         public double converter(double value) {
