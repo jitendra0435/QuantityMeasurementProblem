@@ -58,8 +58,8 @@ package quantitymeasurement;
         },
         FARAD (TypeOfUnit.Temperature){
             public double converter(double value) {
-                double c1 = Math.round((value - 32) * 5 / 9);
-                return c1;
+                return  Math.round((value - 32) * 5 / 9);
+
             }
         },
         CELSIUS(TypeOfUnit.Temperature) {
@@ -69,7 +69,7 @@ package quantitymeasurement;
         };
 
         private final TypeOfUnit typeOfUnit;
-        Unit(TypeOfUnit typeOfUnit) {
+            Unit(TypeOfUnit typeOfUnit) {
             this.typeOfUnit=typeOfUnit;
         }
         public double converter(double value) {

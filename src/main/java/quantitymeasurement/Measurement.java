@@ -3,11 +3,11 @@ package quantitymeasurement;
 public class Measurement {
 
     private final double value;
-    private final Conversion.Unit unit;
+    private final Unit unit;
 
-    public Measurement(Conversion.Unit unit, double value) {
+    public Measurement(Unit unit, double value) {
         this.value = value;
-        this.unit = unit;
+         this.unit = unit;
     }
 
     public boolean compare(Measurement that) {
