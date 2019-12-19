@@ -1,77 +1,80 @@
 package quantitymeasurement;
 
-public class Conversion {
     public enum Unit {
-        FEET {
+        FEET (TypeOfUnit.Length){
             public double converter(double value) {
                 return value * 12;
             }
         },
-        INCH {
+        INCH (TypeOfUnit.Length){
             public double converter(double value) {
                 return value;
             }
         },
-        YARD {
+        YARD (TypeOfUnit.Length){
             public double converter(double value) {
                 return value * 36;
             }
         },
-        CM {
+        CM (TypeOfUnit.Length){
             public double converter(double value) {
                 return (Math.round(value / 2.54));
             }
         },
-        KG {
+        KG (TypeOfUnit.Weight){
             public double converter(double value) {
                 return value * 1000;
             }
         },
-        GRAM {
+        GRAM (TypeOfUnit.Weight){
             public double converter(double value) {
                 return value;
             }
         },
-        QUINTAL {
+        QUINTAL (TypeOfUnit.Weight){
             public double converter(double value) {
                 return value * 100000;
             }
         },
-        TONNE {
+        TONNE (TypeOfUnit.Weight){
             public double converter(double value) {
                 return value * 1000000;
             }
         },
-        ML {
+        ML (TypeOfUnit.Volume){
             public double converter(double value) {
                 return value;
             }
         },
-        LITRE {
+        LITRE(TypeOfUnit.Volume) {
             public double converter(double value) {
                 return value * 1000;
             }
         },
-        GALLON {
+        GALLON (TypeOfUnit.Volume){
             public double converter(double value) {
                 return Math.round(value * 3785.41);
             }
         },
-        FARAD {
+        FARAD (TypeOfUnit.Temperature){
             public double converter(double value) {
                 double c1 = Math.round((value - 32) * 5 / 9);
                 return c1;
             }
         },
-        CELSIUS {
+        CELSIUS(TypeOfUnit.Temperature) {
             public double converter(double value) {
                 return value;
             }
         };
 
+        private final TypeOfUnit typeOfUnit;
+        Unit(TypeOfUnit typeOfUnit) {
+            this.typeOfUnit=typeOfUnit;
+        }
         public double converter(double value) {
             return 0.0;
         }
     }
-}
+
 
