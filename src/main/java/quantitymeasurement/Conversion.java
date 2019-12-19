@@ -60,7 +60,6 @@ public class Conversion {
         FARAD {
             public double converter(double value) {
                 double c1 = Math.round((value - 32) * 5 / 9);
-                System.out.println(c1);
                 return c1;
             }
         },
