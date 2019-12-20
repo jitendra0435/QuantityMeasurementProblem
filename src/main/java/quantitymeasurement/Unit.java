@@ -68,7 +68,7 @@ package quantitymeasurement;
             }
         };
 
-        private final TypeOfUnit typeOfUnit;
+        public final TypeOfUnit typeOfUnit;
             Unit(TypeOfUnit typeOfUnit) {
             this.typeOfUnit=typeOfUnit;
         }

@@ -10,16 +10,22 @@ public class Measurement {
          this.unit = unit;
     }
 
-    public boolean compare(Measurement that) {
-        Double firstValue = this.unit.converter(this.value);
-        Double secondValue = that.unit.converter(that.value);
-        return firstValue.equals(secondValue);
+    public boolean compare(Measurement that) throws UnitsMismatchException {
+        if (this.unit.typeOfUnit.equals(that.unit.typeOfUnit)) {
+            Double firstValue = this.unit.converter(this.value);
+            Double secondValue = that.unit.converter(that.value);
+            return firstValue.equals(secondValue);
+        }
+        throw new UnitsMismatchException(UnitsMismatchException.ExceptionType.TYPE_MISMATCH);
     }
 
-    public double addition(Measurement that) {
-        double firstValue = this.unit.converter(this.value);
-        double secondValue = that.unit.converter(that.value);
-        return firstValue + secondValue;
+    public double addition(Measurement that) throws UnitsMismatchException {
+        if (this.unit.typeOfUnit.equals(that.unit.typeOfUnit)) {
+            double firstValue = this.unit.converter(this.value);
+            double secondValue = that.unit.converter(that.value);
+            return firstValue + secondValue;
+        }
+        throw new UnitsMismatchException(UnitsMismatchException.ExceptionType.TYPE_MISMATCH);
     }
 
     @Override
